@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>moja strona domowa</title>
+</head>
+<body>
+
+<form action="http://inf.ug.edu.pl/~wpawlowski/utl/t1/" method="get">
+	<table>
+		<tr>
+			<td>Użytkownik:</td>
+			<td><input type="text" name="uzytkownik" id="uzytkownik"></td>
+		</tr>
+		<tr>
+			<td>Hasło:</td>
+			<td><input type="password" name="haslo" id="haslo"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="Akceptuj"></td>
+		</tr>
+	</table>
+</form>
+
+<form action="http://inf.ug.edu.pl/~wpawlowski/utl/t2/" method="get">
+	<table>
+		<tr>
+			<td>Data:</td>
+			<td><input type="number" name="dzien" id="dzien" min="1" max="31" step="1"></td>
+			<td><input type="number" name="miesiac" id="miesiac" min="1" max="31" step="1"></td>
+			<td><input type="number" name="rok" id="rok" min="1" max="9999" step="1"></td>
+			<td><input type="submit" value="Sprawdź"></td>
+		</tr>
+	</table>
+</form>
+
+<form action="http://inf.ug.edu.pl/~wpawlowski/utl/t2/" method="get">
+	<table>
+		<tr>
+			<td>Data:</td>
+			<td><input type="number" name="dzien" id="dzien2" min="1" max="31" step="1"></td>
+			<td>
+				<select name="miesiac" id="miesieac2">
+					<option value="1">Styczeń</option>
+					<option value="2">Luty</option>
+					<option value="3">Marzec</option>
+					<option value="4">Kwiecień</option>
+					<option value="5">Maj</option>
+					<option value="6">Czerwiec</option>
+					<option value="7">Lipiec</option>
+					<option value="8">Sierpień</option>
+					<option value="9">Wrzesień</option>
+					<option value="10">Październik</option>
+					<option value="11">Listopad</option>
+					<option value="12">Grudzień</option>
+				</select>
+			</td>
+			<td><input type="number" name="rok" id="rok2" min="1" max="9999" step="1"></td>
+			<td><input type="submit" value="Sprawdź"></td>
+		</tr>
+	</table>
+</form>
+
+<form action="http://inf.ug.edu.pl/~wpawlowski/utl/t3/" method="post">
+	<table>
+		<tr>
+			<td>Data:</td>
+			<td><input type="number" name="dzien" id="dzien3" min="1" max="31" step="1"></td>
+			<td>
+				<select name="miesiac" id="miesieac3">
+					<option value="1">Styczeń</option>
+					<option value="2">Luty</option>
+					<option value="3">Marzec</option>
+					<option value="4">Kwiecień</option>
+					<option value="5">Maj</option>
+					<option value="6">Czerwiec</option>
+					<option value="7">Lipiec</option>
+					<option value="8">Sierpień</option>
+					<option value="9">Wrzesień</option>
+					<option value="10">Październik</option>
+					<option value="11">Listopad</option>
+					<option value="12">Grudzień</option>
+				</select>
+			</td>
+			<td><input type="number" name="rok" id="rok3" min="1" max="9999" step="1"></td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<textarea name="notatka" id="notatka" cols="30" rows="12">Miejsce na notatkę...</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<input type="submit" value="Zapisz">
+			</td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>
