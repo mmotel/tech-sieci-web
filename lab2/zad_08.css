@@ -1,0 +1,30 @@
+body {
+	background: #cccccc;
+	padding-top: 20%;
+}
+
+.A {
+	display: inline-table;
+	margin-top: 1ex;
+	margin-left: 1em; 
+/*	position: relative;
+	top: 1ex;
+	left: 1em;*/
+}
+
+.B {
+	display: inline-table;
+/*	position: relative;
+	top: -1ex;
+	left: 1em;*/
+	margin-top: -1ex;
+	margin-left: 1em;
+}
+
+.C {
+	border: 2px solid red;
+	padding: 5px;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}

@@ -1,0 +1,11 @@
+body {
+	background: #cccccc;
+	padding: 0px;
+	margin: 0px;
+}
+
+div#menu {
+	border: 3px outset;
+	text-align: center;
+	background: white;
+}

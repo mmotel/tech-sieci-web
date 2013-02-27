@@ -1,0 +1,38 @@
+  body {
+	margin: 0px;
+	padding: 0px;
+  }
+  
+  div#pojemnik {
+	background: url('papier.gif');
+	overflow: auto;
+	padding: 10px;
+  }
+  div.adres {
+      margin-left: auto;
+      margin-right: auto;
+	  margin-top: 10px;
+      width: 12em;
+	  border: 3px solid black;
+	  background-color: yellow;
+	  padding: 5px;
+  }
+  span.nazwisko {
+      display: block;
+      font-weight: bold;
+      border-bottom: thin solid blue;
+      border-top: thin solid blue;
+	  color: blue;
+  }
+  span.ulica {
+      display: block;
+	  color: green;
+  }
+  span.kod {
+	color: brown;
+  }
+  span.miejscowosc {
+  }
+  span.telefon {
+      display: block;
+  }

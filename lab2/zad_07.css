@@ -1,0 +1,17 @@
+body {
+	background: #cccccc;
+}
+
+.A {
+	display: inline;
+	position: relative;
+	top: 1ex;
+	left: 1em;
+}
+
+.B {
+	display: inline;
+	position: relative;
+	top: -1ex;
+	left: 1em;
+}

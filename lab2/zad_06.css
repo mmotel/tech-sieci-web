@@ -1,0 +1,14 @@
+ul li {
+	list-style-type: decimal;
+	color: red;
+}
+
+ul ul li {
+	list-style-type: lower-latin;
+	color: green;
+}
+
+ul ul ul li {
+	list-style-image: url('blue4.gif');
+	color: blue;
+}
