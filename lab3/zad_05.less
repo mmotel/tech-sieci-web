@@ -1,0 +1,65 @@
+@szerokosc: 900px;
+@stdpadd: 5px;
+
+.bordered(@width: 1px, @style: solid, @color: black){
+	border-width: @width;
+	border-style: @style;
+	border-color: @color;
+}
+
+body{
+	background: white;
+}
+
+div#strona{
+	margin: 10px auto 10px auto;
+	width: @szerokosc;
+	background: #cecece;
+	.bordered(1px, solid, #424242);
+}
+
+div#naglowek{
+	width: @szerokosc - (2 * @stdpadd);
+	background: #bbbbbb;
+	padding: @stdpadd;
+	display: block;
+	.bordered(0px 0px 1px 0px);
+}
+
+div#stopka{
+	width: @szerokosc - (2 * @stdpadd);
+	background: #bbbbbb;
+	padding: @stdpadd;
+	display: block;
+	clear: both;
+	.bordered(1px 0px 0px 0px);
+}
+
+div#menu{
+	width: 200px - (2 * @stdpadd);
+	padding: @stdpadd;
+	float: left;
+	display: block;
+}
+
+div#tresc{
+	width: 700px - (2 * @stdpadd) - 2px;
+	padding: @stdpadd;
+	background: #efefef;
+	float: right;
+	display: block;
+	.bordered(0px 0px 0px 2px, solid, #424242);
+}
+
+span.el_menu{
+	background: white;
+	border: 1px #cccccc outset;
+	width: 180px - (2 * @stdpadd);
+	padding: @stdpadd;
+	display: block;
+	text-align: center;
+	
+	:hover{
+		border: 1px #cccccc inset;
+	}
+}

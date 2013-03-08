@@ -1,0 +1,26 @@
+body{
+	background: #cccccc;
+}
+
+div#menu{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	float: left;
+	width: 180px;
+	text-align: center;
+	padding: 10px;
+}
+
+div#tresc{
+	position: absolute;
+	left: 200px;
+	top: 0px;
+	float: right;
+	border-left: 2px solid black;
+	padding: 10px;
+}
+
+.el_menu{
+	display: block;
+}

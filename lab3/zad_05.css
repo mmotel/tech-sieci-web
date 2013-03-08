@@ -1,0 +1,57 @@
+body {
+  background: white;
+}
+div#strona {
+  margin: 10px auto 10px auto;
+  width: 900px;
+  background: #cecece;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #424242;
+}
+div#naglowek {
+  width: 890px;
+  background: #bbbbbb;
+  padding: 5px;
+  display: block;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  border-color: #000000;
+}
+div#stopka {
+  width: 890px;
+  background: #bbbbbb;
+  padding: 5px;
+  display: block;
+  clear: both;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  border-color: #000000;
+}
+div#menu {
+  width: 190px;
+  padding: 5px;
+  float: left;
+  display: block;
+}
+div#tresc {
+  width: 688px;
+  padding: 5px;
+  background: #efefef;
+  float: right;
+  display: block;
+  border-width: 0px 0px 0px 2px;
+  border-style: solid;
+  border-color: #424242;
+}
+span.el_menu {
+  background: white;
+  border: 1px #cccccc outset;
+  width: 170px;
+  padding: 5px;
+  display: block;
+  text-align: center;
+}
+span.el_menu :hover {
+  border: 1px #cccccc inset;
+}

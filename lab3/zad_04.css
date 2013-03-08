@@ -1,0 +1,54 @@
+body{
+	background: #cccccc;
+}
+
+a:link, a:hover, a:visited{
+	color: brown;
+	text-decoration: none;
+}
+
+div#menu{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	float: left;
+	width: 180px;
+	text-align: center;
+	padding: 40px 10px 10px 10px;
+}
+
+div#tresc{
+	position: absolute;
+	left: 200px;
+	top: 0px;
+	float: right;
+	border-left: 2px solid black;
+	padding: 10px;
+}
+
+.el_menu{
+	display: block;
+	width: 180px;
+	background: white;
+	border: 1px outset;
+}
+
+#naglowek{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	padding: 5px;
+	min-width: 50%;
+	border-bottom: 1px solid black;
+	background: #bbbbbb;
+}
+
+#stopka{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	padding: 5px;
+	min-width: 50%;
+	border-top: 1px solid black;
+	background: #bbbbbb;
+}
