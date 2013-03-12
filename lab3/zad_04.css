@@ -33,13 +33,6 @@ div#tresc{
 	border: 1px outset;
 }
 
-.el_menu:hover{
-	display: block;
-	width: 180px;
-	background: white;
-	border: 1px inset;
-}
-
 #naglowek{
 	position: fixed;
 	top: 0px;
