@@ -52,6 +52,6 @@ span.el_menu {
   display: block;
   text-align: center;
 }
-span.el_menu :hover {
+span.el_menu:hover {
   border: 1px #cccccc inset;
 }
