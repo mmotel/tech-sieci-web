@@ -28,7 +28,7 @@ var tree = (function(){
 			if(o && o !== null){
 				console.log(pre + "[ imie: " + o.imie + ", nazwisko: " + o.nazwisko + ", id: " + o.index + " ]"); 
 			}
-          else { throw { typerr: "nie ma takiej osoby" }; }
+			else { throw { typerr: "nie ma takiej osoby" }; }
 		};
 		
 		return {
@@ -42,7 +42,7 @@ var tree = (function(){
 				var o = findOsoba(idOsoba); 
 				var m = findOsoba(idMama);
 				if(o && m){ o.mama = idMama; }
-              else { throw { typerr: "nie ma takiej osoby" }; }
+				else { throw { typerr: "nie ma takiej osoby" }; }
 			},
 			rmMama: function (idOsoba){
 				var o = findOsoba(idOsoba);
@@ -54,7 +54,7 @@ var tree = (function(){
 				var o = findOsoba(idOsoba); 
 				var t = findOsoba(idTata);
 				if(o && t){ o.tata = idTata; }
-              else { throw { typerr: "nie ma takiej osoby" }; }
+				else { throw { typerr: "nie ma takiej osoby" }; }
 			},
 			rmTata: function (idOsoba){
 				var o = findOsoba(idOsoba);
