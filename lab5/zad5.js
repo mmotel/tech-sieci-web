@@ -15,7 +15,7 @@ var tree = (function(){
 		var findOsoba = function (id) { 
 			var o = null;
 			Array.prototype.forEach.call(osoby, function (el) {
-              if(el.index === id) {o = el; }
+				if(el.index === id) {o = el; }
 			});
 			return o;
 		};
