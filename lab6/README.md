@@ -1,1 +1,1 @@
-To run this scripts you need to download a jQuery lib form [here](http://code.jquery.com/jquery-1.9.1.js)
+To run this scripts you need to download a jQuery lib form [here](http://code.jquery.com/jquery-1.9.1.js).
