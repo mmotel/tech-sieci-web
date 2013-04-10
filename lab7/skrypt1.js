@@ -1,5 +1,5 @@
 $(function () {
-	var getColour = function (i) { // "brzydkie" i ma³o eleganckie rozwi¹zanie 
+	var getColour = function (i) { // "brzydkie" i maÅ‚o eleganckie rozwiÄ…zanie 
 		var color;
 		if(i === 1) { color = '#bbbbbb'; }
 		else if(i === 2) { color = '#cccccc'; }
