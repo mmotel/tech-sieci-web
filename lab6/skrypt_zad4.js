@@ -1,7 +1,7 @@
 $(function() {
 	var cenzura = function (patt){
 		var pattern = new RegExp(patt, 'g');
-		var children = $(document.documentElement).children();
+		var children = $('body').contents();
 		while(children.length > 0){
 			for(var i=0; i < $(children).length; i+=1){
 				if(children[i].nodeType === 3){
