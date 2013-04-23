@@ -12,7 +12,7 @@ input[type="text"]{
 	margin: 5px;
 }
 
-td {
+td.historyVal {
 	width: 40px;
 	margin: 5px;
 	text-align: center;
@@ -26,4 +26,17 @@ div.selectPanel {
 
 div.selectPanel > input[type="number"] {
 	float: right;
+}
+
+div.white, div.black {
+	width: 10px;
+	height: 10px;
+	display: block;
+	margin: 5px;
+	border-radius: 15px;
+	border:1px solid black;
+}
+
+div.black{
+	background: black;
 }

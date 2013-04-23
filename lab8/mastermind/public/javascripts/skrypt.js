@@ -19,20 +19,19 @@ $(function () {
 			
 			for(i=0; i < inputs.length; i++){
 				path += $(inputs[i]).val() + '/';
-				toAppend += '<td>' + $(inputs[i]).val() + '</td>';
+				toAppend += '<td class="historyVal">' + $(inputs[i]).val() + '</td>';
 				$(inputs[i]).val('');
 			};
 			
 			$.getJSON(path, function(data){
 				console.log(data.blackPoints + ' : ' + data.whitePoints);
-				toAppend += '<td>';
 				for(var i=0; i < data.blackPoints; i++){
-					toAppend += '#';
+					toAppend += '<td><div class="black"></div></td>';
 				};
 				for(var i=0; i < data.whitePoints; i++){
-					toAppend += '*';
+					toAppend += '<td><div class="white"></div></td>';
 				};
-				toAppend += '</td></tr></table></div>';
+				toAppend += '</tr></table></div>';
 
 				//wygrana
 
@@ -68,26 +67,13 @@ $(function () {
 	$('button#startGame').click(function(){
 		
 		var path = "http://localhost:3000/play/";
-		if($('#size').val()){
+
+		if($('#size').val() && $('#dim').val() && $('#max').val()){
 			path += "size/" + $('#size').val() + "/";
-		}
-		else {
-			path += "size/5" + "/";
-		}
-
-		if($('#dim').val()){
 			path += "dim/" + $('#dim').val() + "/";
-		}
-		else {
-			path += "dim/9" + "/";
-		}
-
-		if($('#max').val()){
 			path += "max/" + $('#max').val() + "/";
 		}
-		else {
-			path += "max/null/";
-		}
+			
 		console.log(path);
 		$.getJSON(path,
 		function (data) {

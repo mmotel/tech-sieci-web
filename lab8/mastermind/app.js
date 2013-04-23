@@ -13,7 +13,7 @@ app.configure(function () {
         data: [], // układ liczb-kolorów do zganięcia
         size: 5,  // liczba wykorzystywanych „kolumn”
         dim: 9,   // liczba dostępnych kolorów
-        max: 2 // maksymalna liczba prób (null – brak ograniczeń)
+        max: null // maksymalna liczba prób (null – brak ograniczeń)
     });
     app.use(express.favicon());
     app.use(express.logger('dev'));

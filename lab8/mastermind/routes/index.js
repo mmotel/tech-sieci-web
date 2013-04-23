@@ -48,7 +48,7 @@ exports.play = function (req, res) {
 exports.mark = function (req, res) {
     var markAnswer = function () {
 		var puzzle = req.session.puzzle;
-        req.session.puzzle.max--;
+        if(req.session.puzzle.max !== null){ req.session.puzzle.max--; }
 
         var move = req.params[0].split('/');
         move = move.slice(0, move.length - 1);
@@ -77,7 +77,7 @@ exports.mark = function (req, res) {
 				}
 			};
 		};
-		
+		console.log('max: ' + req.session.puzzle.max);
         var isGameOver = req.session.puzzle.max === 0 ? true : false;
         var isGameWon = parseInt(req.session.puzzle.size,10) === blackPoints ? true : false;
         console.log('isGameWon: ' + isGameWon);
