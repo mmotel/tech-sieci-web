@@ -1,12 +1,12 @@
 $(function () {
 	//drukowanie interfejsu
-	var drawGUI = function(size){
+	var drawGUI = function(size,dim){
 		$('#move').children().remove();
 		$('#history').children().remove();
 		$('#output').children().remove();
 		
 		for(var i=0; i < size; i++){
-			$('div#move').append('<input type="text" id="' + i + '"></input>');
+			$('div#move').append('<input type="number" id="' + i + '" min="0" max="'+ dim +'"></input>');
 		};
 		
 		$('div#move').append('<button id="checkMarks">Sprawdź</button>');
@@ -15,7 +15,7 @@ $(function () {
 		
 			var path = 'http://localhost:3000/mark/';
 			var toAppend = '<div><table><tr>';
-			var inputs = $('div#move').children().filter('input[type="text"]');
+			var inputs = $('div#move').children().filter('input[type="number"]');
 			
 			for(i=0; i < inputs.length; i++){
 				path += $(inputs[i]).val() + '/';
@@ -35,15 +35,17 @@ $(function () {
 
 				//wygrana
 
-				//przekroczenie liczby ruchów
+				
 				$('div#history').append(toAppend);
 				console.log('over: ' + data.gameOver);
 				console.log('win: ' + data.gameWin);
+				//przekroczenie liczby ruchów
 				if(data.gameOver){
 					$('button#checkMarks').css('display', 'none');
 					$('#panel').css('display', 'block');
 					alert('WYKONAŁEŚ MAKSYMALNĄ ILOŚĆ RUCHÓW.');
 				} else
+				//wygrana
 				if(data.gameWin){
 					$('button#checkMarks').css('display', 'none');
 					$('#panel').css('display', 'block');
@@ -57,7 +59,7 @@ $(function () {
 	$('body').append('<div id="output"></div>');
 	$('body').append('<div id="history"></div>');
 	$('body').append('<div id="move"></div>');
-
+	//div#panel
 	$('#panel').append('<div class="selectPanel">rozmiar planszy: <input type="number" id="size" min="1"></input></div>');
 	$('#panel').append('<div class="selectPanel">ilość kolorów: <input type="number" id="dim" min="1"></input></div>');
 	$('#panel').append('<div class="selectPanel">maksymalna ilość ruchów: <input type="number" id="max" min="2"></input></div>');
@@ -78,7 +80,7 @@ $(function () {
 		$.getJSON(path,
 		function (data) {
                 $('div#output').append('<p> Rozmiar: ' + data.size + '<br/> Ilość kolorów: ' + data.dim + '  </p>');
-				drawGUI(data.size);
+				drawGUI(data.size, data.dim);
             });
 	
 		$('#panel').css('display', 'none');
