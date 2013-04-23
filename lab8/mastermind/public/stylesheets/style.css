@@ -6,3 +6,24 @@ body {
 a {
   color: #00B7FF;
 }
+
+input[type="text"]{
+	width: 30px;
+	margin: 5px;
+}
+
+td {
+	width: 40px;
+	margin: 5px;
+	text-align: center;
+}
+
+div.selectPanel {
+	width: 350px;
+	padding: 5px;
+	display: block;
+}
+
+div.selectPanel > input[type="number"] {
+	float: right;
+}

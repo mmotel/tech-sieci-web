@@ -1,8 +1,9 @@
 $(function () {
 	//drukowanie interfejsu
 	var drawGUI = function(size){
-		$('body').append('<div id="history"></div>');
-		$('body').append('<div id="move"></div>');
+		$('#move').children().remove();
+		$('#history').children().remove();
+		$('#output').children().remove();
 		
 		for(var i=0; i < size; i++){
 			$('div#move').append('<input type="text" id="' + i + '"></input>');
@@ -32,24 +33,68 @@ $(function () {
 					toAppend += '*';
 				};
 				toAppend += '</td></tr></table></div>';
+
+				//wygrana
+
+				//przekroczenie liczby ruchów
 				$('div#history').append(toAppend);
-				
+				console.log('over: ' + data.gameOver);
+				console.log('win: ' + data.gameWin);
+				if(data.gameOver){
+					$('button#checkMarks').css('display', 'none');
+					$('#panel').css('display', 'block');
+					alert('WYKONAŁEŚ MAKSYMALNĄ ILOŚĆ RUCHÓW.');
+				} else
+				if(data.gameWin){
+					$('button#checkMarks').css('display', 'none');
+					$('#panel').css('display', 'block');
+					alert('WYGRAŁEŚ!');
+				}
 			});
 		});
 	};
 	//przygotowanie interfejsu
-    $('body').append('<button id="startGame">Zagraj</button>');
+	$('body').append('<div id="panel"></div>');
 	$('body').append('<div id="output"></div>');
+	$('body').append('<div id="history"></div>');
+	$('body').append('<div id="move"></div>');
+
+	$('#panel').append('<div class="selectPanel">rozmiar planszy: <input type="number" id="size" min="1"></input></div>');
+	$('#panel').append('<div class="selectPanel">ilość kolorów: <input type="number" id="dim" min="1"></input></div>');
+	$('#panel').append('<div class="selectPanel">maksymalna ilość ruchów: <input type="number" id="max" min="2"></input></div>');
+    $('#panel').append('<button id="startGame">Zagraj</button>');
 	
 	//rozpoczęcie gry
 	$('button#startGame').click(function(){
 		
-		$.getJSON("http://localhost:3000/play/",
+		var path = "http://localhost:3000/play/";
+		if($('#size').val()){
+			path += "size/" + $('#size').val() + "/";
+		}
+		else {
+			path += "size/5" + "/";
+		}
+
+		if($('#dim').val()){
+			path += "dim/" + $('#dim').val() + "/";
+		}
+		else {
+			path += "dim/9" + "/";
+		}
+
+		if($('#max').val()){
+			path += "max/" + $('#max').val() + "/";
+		}
+		else {
+			path += "max/null/";
+		}
+		console.log(path);
+		$.getJSON(path,
 		function (data) {
                 $('div#output').append('<p> Rozmiar: ' + data.size + '<br/> Ilość kolorów: ' + data.dim + '  </p>');
 				drawGUI(data.size);
             });
 	
-		$('button#startGame').css('display', 'none');
+		$('#panel').css('display', 'none');
 	});
 });

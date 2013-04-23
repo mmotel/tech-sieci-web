@@ -48,6 +48,8 @@ exports.play = function (req, res) {
 exports.mark = function (req, res) {
     var markAnswer = function () {
 		var puzzle = req.session.puzzle;
+        req.session.puzzle.max--;
+
         var move = req.params[0].split('/');
         move = move.slice(0, move.length - 1);
         console.log(move);
@@ -76,11 +78,18 @@ exports.mark = function (req, res) {
 			};
 		};
 		
+        var isGameOver = req.session.puzzle.max === 0 ? true : false;
+        var isGameWon = parseInt(req.session.puzzle.size,10) === blackPoints ? true : false;
+        console.log('isGameWon: ' + isGameWon);
+        console.log('isGameOver: ' + isGameOver);
+
         return {
             'retVal': 'tutaj – zamiast tego napisu – ocena',
             'retMsg': 'coś o ocenie – np „Brawo” albo „Buuu”',
 			'blackPoints': blackPoints,
-			'whitePoints': whitePoints
+			'whitePoints': whitePoints,
+            'gameOver': isGameOver,
+            'gameWin': isGameWon
         };
     };
     res.writeHead(200, {
