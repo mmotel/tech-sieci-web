@@ -19,7 +19,10 @@ var handleMessageBroadcasting = function (socket, nickNames){
             newData.nick = currentNick[socket.id];
             newData.msg = data;
             for(var i =0; i < nickNames[currentRoom[socket.id]].length; i++){
-                if(currentRoom[nickNames[currentRoom[socket.id]][i].user] === currentRoom[socket.id]){
+                if(nickNames[currentRoom[socket.id]][i] &&
+                    currentRoom[nickNames[currentRoom[socket.id]][i].user] === currentRoom[socket.id]){
+                    // console.log(nickNames[currentRoom[socket.id]].length);
+                    // console.log(nickNames[currentRoom[socket.id]][i].socket);
                     nickNames[currentRoom[socket.id]][i].socket.emit('newMsg', newData);
                     // socket.broadcast.to(currentRoom[socket.id]).emit('newMsg', newData);
                 }
@@ -38,7 +41,7 @@ var handleNameChangeAttempts = function (socket, nickNames, namesUsed){
         var nickList = nickNames[room];
         //console.log(nickList);
         for(var i =0; i < nickList.length; i++){
-            if(nickList[i].nick === newNick){
+            if(nickList[i] && nickList[i].nick === newNick){
                 nickExists = true;
                 break;
             }
@@ -50,7 +53,7 @@ var handleNameChangeAttempts = function (socket, nickNames, namesUsed){
         }else {
             var userNo = {};
             for(var i =0; i < nickList.length; i++){
-                if(nickList[i].user === socket.id){
+                if(nickList[i] && nickList[i].user === socket.id){
                     userNo.i = i;
                 }
             }
@@ -76,11 +79,11 @@ var handleRoomJoining = function (socket, nickNames, namesUsed){
             var nickExists = false;
             var userNo;
             for(var i = 0; i < nickList.length; i++){
-                if(nickList[i].user === socket.id){
+                if(nickList[i] && nickList[i].user === socket.id){
                     userExists = true;
                     userNo = i;
                 }
-                if(nickList[i].nick === currentNick[socket.id] && nickList[i].user !== socket.id){
+                if(nickList[i] && nickList[i].nick === currentNick[socket.id] && nickList[i].user !== socket.id){
                     nickExists = true;
                 }
             }
@@ -95,9 +98,9 @@ var handleRoomJoining = function (socket, nickNames, namesUsed){
                     currentRoom[socket.id] = data;
                 }else {
                     // socket.join(data);
-                    nickList.push({'nick': 'Gość' + (nickList.length+1), 'user': socket.id, 'socket': socket});
+                    nickList.push({'nick': 'Gość ' + (nickList.length+1), 'user': socket.id, 'socket': socket});
                     currentRoom[socket.id] = data;
-                    currentNick[socket.id] = 'Gość' + (nickList.length+1);
+                    currentNick[socket.id] = 'Gość ' + (nickList.length+1);
                 }
             }
         } else {
@@ -117,6 +120,14 @@ var handleClientDisconnection = function (socket, nickNames, namesUsed){
     socket.on('disconnect', function() {
       //TO-DO
       console.log('got disconnect!');
+
+      for(var i =0; i < namesUsed.length; i++){
+        for(var j=0; j < nickNames[namesUsed[i]].length; j++){
+            if(nickNames[namesUsed[i]][j] && nickNames[namesUsed[i]][j].user === socket.id){
+                nickNames[namesUsed[i]][j] = undefined;
+            }
+        }
+      }
     });
 }
 
@@ -138,7 +149,7 @@ exports.listen = function(server) {
         handleMessageBroadcasting(socket, nickNames);
         handleNameChangeAttempts(socket, nickNames, namesUsed);
         handleRoomJoining(socket, nickNames, namesUsed);
-        // handleClientDisconnection(socket, nickNames, namesUsed);
+        handleClientDisconnection(socket, nickNames, namesUsed);
 
 
     });
