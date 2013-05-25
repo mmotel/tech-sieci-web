@@ -25,11 +25,14 @@ $(function () {
 
     socket.on('newMsg', function (data){
 
-    	$('#chatMsgs').prepend('<tr><td><span class="label label-inverse">'+data.nick+'</span> '+data.msg+"</td></td>");
+    	$('#chatMsgs').
+        prepend('<tr><td><span class="label label-inverse">'+data.nick+
+            '</span> '+data.msg+"</td></td>");
     });
 
     socket.on('joinResult', function (data) {
-    	$('#chatMsgs').prepend('<tr><td><span class="label label-success">'+data.nick+'</span> Dołączyłeś/aś do pokoju: '+
+    	$('#chatMsgs').prepend('<tr><td><span class="label label-success">'+
+            data.nick+'</span> Dołączyłeś/aś do pokoju: '+
     		data.room+' jako '+data.nick+'.</td></tr>');
     	$('#roomsList').children().remove();
     	$(data.roomsList).each(function(){
@@ -45,12 +48,14 @@ $(function () {
     });
 
     socket.on('changeNickFailed', function (data){
-    	$('#chatMsgs').prepend('<tr><td><span class="label label-important">'+data.nick+'</span> Zmiana identyfikatora na: '+
+    	$('#chatMsgs').prepend('<tr><td><span class="label label-important">'+
+            data.nick+'</span> Zmiana identyfikatora na: '+
     		data.newNick +' nie powiodła się.</td></tr>');
     });
 
     socket.on('changeNickSuccess', function (data){
-    	$('#chatMsgs').prepend('<tr><td><span class="label label-success">'+data.newNick+'</span> Zmiana identyfikatora na: '+
+    	$('#chatMsgs').prepend('<tr><td><span class="label label-success">'+
+            data.newNick+'</span> Zmiana identyfikatora na: '+
     		data.newNick +' powiodła się.</td></tr>');
     });
 });
